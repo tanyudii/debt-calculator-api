@@ -1,6 +1,5 @@
+import { IUser } from '@app/common/interfaces/user.interface';
 import { Field, ObjectType } from '@nestjs/graphql';
-
-import { IUser } from '../../@common/interfaces/user.interface';
 
 @ObjectType()
 export class Profile implements IUser {

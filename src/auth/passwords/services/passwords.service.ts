@@ -1,7 +1,7 @@
+import { DefaultMessage } from '@app/common/graphql/types/default-message.type';
 import { MailerService } from '@nestjs-modules/mailer';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
-import { DefaultMessage } from '../../../@common/graphql/types/default-message.type';
 import { UsersService } from '../../../users/services/users.service';
 import { PasswordResetsService } from '../../password-resets/services/password-resets.service';
 import { ForgotPasswordInput } from '../dto/forgot-password.input';

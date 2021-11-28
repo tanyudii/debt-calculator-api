@@ -2,8 +2,8 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 import { CreateTokenInput } from '../dto/create-token.input';
 import { RefreshTokenInput } from '../dto/refresh-token.input';
-import { TokensService } from '../services/tokens.service';
 import { TokenResource } from '../resources/token.resource';
+import { TokensService } from '../services/tokens.service';
 
 @Resolver()
 export class TokensResolver {

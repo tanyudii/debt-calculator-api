@@ -1,10 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import * as gravatar from 'gravatar';
-
 import {
   comparePassword,
   hashPassword,
-} from '../../@common/helpers/bcrypt.helper';
+} from '@app/common/helpers/bcrypt.helper';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import * as gravatar from 'gravatar';
+
 import { CreateUserInput } from '../dto/create-user.input';
 import { UpdateUserInput } from '../dto/update-user.input';
 import { User } from '../entities/user.entity';

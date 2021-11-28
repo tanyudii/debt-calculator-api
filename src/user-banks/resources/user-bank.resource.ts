@@ -1,6 +1,7 @@
-import { Resource } from '../../@common/graphql/types/resource.type';
-import { UserBank } from '../entities/user-bank.entity';
+import { Resource } from '@app/common/graphql/types/resource.type';
 import { Field, ObjectType } from '@nestjs/graphql';
+
+import { UserBank } from '../entities/user-bank.entity';
 
 @ObjectType()
 export class UserBankResource extends Resource<UserBankResource> {

@@ -1,6 +1,6 @@
+import { DefaultMessage } from '@app/common/graphql/types/default-message.type';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
-import { DefaultMessage } from '../../../@common/graphql/types/default-message.type';
 import { OtpService } from '../../../otp/services/otp.service';
 import { UsersService } from '../../../users/services/users.service';
 import { RegisterInput } from '../dto/register.input';

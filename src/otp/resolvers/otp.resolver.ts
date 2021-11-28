@@ -2,8 +2,8 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 import { CreateOtpInput } from '../dtos/create-otp.input';
 import { Otp } from '../entities/otp.entity';
-import { OtpService } from '../services/otp.service';
 import { OtpResource } from '../resources/otp.resource';
+import { OtpService } from '../services/otp.service';
 
 @Resolver(() => Otp)
 export class OtpResolver {

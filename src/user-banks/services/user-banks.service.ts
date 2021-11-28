@@ -1,14 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-
-import { CreateUserBankInput } from '../dto/create-user-bank.input';
-import { UpdateUserBankInput } from '../dto/update-user-bank.input';
-import { UserBank } from '../entities/user-bank.entity';
-import { UserBankRepository } from '../repositories/user-bank.repository';
 import {
   IPaginationOptions,
   paginate,
   Pagination,
 } from 'nestjs-typeorm-paginate';
+
+import { CreateUserBankInput } from '../dto/create-user-bank.input';
+import { UpdateUserBankInput } from '../dto/update-user-bank.input';
+import { UserBank } from '../entities/user-bank.entity';
+import { UserBankRepository } from '../repositories/user-bank.repository';
 
 @Injectable()
 export class UserBanksService {

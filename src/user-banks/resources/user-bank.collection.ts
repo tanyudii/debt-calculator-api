@@ -1,13 +1,10 @@
-import { Resource } from '../../@common/graphql/types/resource.type';
-import { UserBank } from '../entities/user-bank.entity';
+import { Collection } from '@app/common/graphql/types/collection.type';
 import { Field, ObjectType } from '@nestjs/graphql';
-import { PaginationMeta } from '../../@common/graphql/types/pagination-meta.type';
+
+import { UserBank } from '../entities/user-bank.entity';
 
 @ObjectType()
-export class UserBankCollection extends Resource<UserBankCollection> {
+export class UserBankCollection extends Collection<UserBankCollection> {
   @Field(() => [UserBank])
   data: UserBank[];
-
-  @Field(() => PaginationMeta)
-  meta: PaginationMeta;
 }

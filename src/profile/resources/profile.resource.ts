@@ -1,6 +1,7 @@
-import { Resource } from '../../@common/graphql/types/resource.type';
-import { Profile } from '../types/profile.type';
+import { Resource } from '@app/common/graphql/types/resource.type';
 import { Field, ObjectType } from '@nestjs/graphql';
+
+import { Profile } from '../types/profile.type';
 
 @ObjectType()
 export class ProfileResource extends Resource<ProfileResource> {

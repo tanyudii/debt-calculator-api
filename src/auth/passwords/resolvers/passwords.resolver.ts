@@ -1,8 +1,9 @@
+import { DefaultMessageResource } from '@app/common/graphql/types/default-message-resource.type';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
+
 import { ForgotPasswordInput } from '../dto/forgot-password.input';
 import { ResetPasswordInput } from '../dto/reset-password.input';
 import { PasswordsService } from '../services/passwords.service';
-import { DefaultMessageResource } from '../../../@common/graphql/types/default-message-resource.type';
 
 @Resolver()
 export class PasswordsResolver {

@@ -1,8 +1,8 @@
 import { EntityRepository, Repository } from 'typeorm';
+import { SelectQueryBuilder } from 'typeorm/query-builder/SelectQueryBuilder';
+import { QueryRunner } from 'typeorm/query-runner/QueryRunner';
 
 import { UserBank } from '../entities/user-bank.entity';
-import { QueryRunner } from 'typeorm/query-runner/QueryRunner';
-import { SelectQueryBuilder } from 'typeorm/query-builder/SelectQueryBuilder';
 
 @EntityRepository(UserBank)
 export class UserBankRepository extends Repository<UserBank> {

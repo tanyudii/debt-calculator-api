@@ -9,7 +9,6 @@ import { AccessTokensModule } from '../access-tokens/access-tokens.module';
 import { AccessTokenRepository } from '../access-tokens/repositories/access-token.repository';
 import { RefreshTokensModule } from '../refresh-tokens/refresh-tokens.module';
 import { RefreshTokenRepository } from '../refresh-tokens/repositories/refresh-token.repository';
-import { TokensController } from './controllers/tokens.controller';
 import { TokensResolver } from './resolvers/tokens.resolver';
 import { TokensService } from './services/tokens.service';
 
@@ -30,6 +29,5 @@ import { TokensService } from './services/tokens.service';
     OtpModule,
   ],
   providers: [TokensResolver, TokensService],
-  controllers: [TokensController],
 })
 export class TokensModule {}

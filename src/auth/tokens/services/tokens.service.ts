@@ -1,9 +1,9 @@
+import { durationConverter } from '@app/common/helpers/duration.helper';
+import { isEmail } from '@app/common/helpers/validate.helper';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as moment from 'moment';
 
-import { durationConverter } from '../../../@common/helpers/duration.helper';
-import { isEmail } from '../../../@common/helpers/validate.helper';
 import { OtpService } from '../../../otp/services/otp.service';
 import { UsersService } from '../../../users/services/users.service';
 import { AccessToken } from '../../access-tokens/entities/access-token.entity';

@@ -1,7 +1,8 @@
+import { DefaultMessageResource } from '@app/common/graphql/types/default-message-resource.type';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
+
 import { RegisterInput } from '../dto/register.input';
 import { RegistersService } from '../services/registers.service';
-import { DefaultMessageResource } from '../../../@common/graphql/types/default-message-resource.type';
 
 @Resolver()
 export class RegistersResolver {

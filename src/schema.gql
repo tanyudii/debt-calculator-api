@@ -2,12 +2,11 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type User {
+type UserBank {
   id: String!
-  name: String!
-  phoneNumber: String!
-  email: String!
-  avatar: String
+  userId: String!
+  bankName: String!
+  bankNumber: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   deletedAt: DateTime
@@ -56,124 +55,6 @@ type TokenResource {
   data: TokenResponse!
 }
 
-type Group {
-  id: String!
-  name: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  deletedAt: DateTime
-  groupUsers: [GroupUser!]!
-  users: [User!]!
-}
-
-type GroupUser {
-  id: String!
-  groupId: String!
-  userId: String!
-  role: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  deletedAt: DateTime
-  group: Group!
-  user: User
-}
-
-type GroupResource {
-  data: Group!
-}
-
-type PaginationMeta {
-  itemCount: Int!
-  totalItems: Int
-  itemsPerPage: Int!
-  totalPages: Int
-  currentPage: Int!
-}
-
-type GroupCollection {
-  data: [Group!]!
-  meta: PaginationMeta!
-}
-
-type Shopping {
-  id: String!
-  userId: String!
-  date: String!
-  store: String!
-  isPpn: Boolean!
-  delivery: Float!
-  discount: Float!
-  ppn: Float!
-  subtotal: Float!
-  grandTotal: Float!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  deletedAt: DateTime
-  shoppingItems: [ShoppingItem!]!
-  user: User!
-}
-
-type ShoppingItem {
-  id: String!
-  shoppingId: String!
-  borrowerId: String!
-  description: String!
-  price: Float!
-  percentage: Float!
-  delivery: Float!
-  discount: Float!
-  ppn: Float!
-  total: Float!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  deletedAt: DateTime
-}
-
-type ShoppingResource {
-  data: Shopping!
-  user: User!
-  shoppingItems: [ShoppingItem!]!
-}
-
-type ShoppingCollection {
-  data: [Shopping!]!
-  meta: PaginationMeta!
-}
-
-type Payment {
-  userId: String!
-  date: String!
-  lenderId: String!
-  lenderBankId: String!
-  delivery: Float!
-  discount: Float!
-  ppn: Float!
-  subtotal: Float!
-  grandTotal: Float!
-  paymentItems: [PaymentItem!]!
-  user: User!
-}
-
-type PaymentItem {
-  paymentId: String!
-  shoppingId: String!
-  price: Float!
-  percentage: Float!
-  delivery: Float!
-  discount: Float!
-  ppn: Float!
-  total: Float!
-}
-
-type PaymentCollection {
-  data: [Payment!]!
-  meta: PaginationMeta!
-}
-
-type PaymentResource {
-  data: Payment!
-}
-
 type Profile {
   id: String!
   name: String!
@@ -184,23 +65,21 @@ type ProfileResource {
   data: Profile!
 }
 
-type UserBank {
-  id: String!
-  userId: String!
-  bankName: String!
-  bankNumber: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  deletedAt: DateTime
+type PaginationMeta {
+  itemCount: Int!
+  totalItems: Int
+  itemsPerPage: Int!
+  totalPages: Int
+  currentPage: Int!
+}
+
+type UserBankCollection {
+  meta: PaginationMeta!
+  data: [UserBank!]!
 }
 
 type UserBankResource {
   data: UserBank!
-}
-
-type UserBankCollection {
-  data: [UserBank!]!
-  meta: PaginationMeta!
 }
 
 type Query {
@@ -208,12 +87,6 @@ type Query {
   getUserIDByEmail(email: String!): DefaultObjectResource!
   userBanks(limit: Int = 25, page: Int = 1): UserBankCollection!
   userBank(id: String!): UserBankResource!
-  shoppings(limit: Int = 25, page: Int = 1): ShoppingCollection!
-  shopping(id: String!): ShoppingResource!
-  payments(limit: Int = 25, page: Int = 1): PaymentCollection!
-  payment(id: String!): PaymentResource!
-  groups(limit: Int = 25, page: Int = 1): GroupCollection!
-  group(id: String!): GroupResource!
   myProfile: ProfileResource!
 }
 
@@ -227,18 +100,6 @@ type Mutation {
   createUserBank(createUserBankInput: CreateUserBankInput!): UserBankResource!
   updateUserBank(updateUserBankInput: UpdateUserBankInput!): UserBankResource!
   removeUserBank(id: String!): UserBankResource!
-  createShopping(createShoppingInput: CreateShoppingInput!): ShoppingResource!
-  updateShopping(updateShoppingInput: UpdateShoppingInput!): ShoppingResource!
-  removeShopping(id: String!): ShoppingResource!
-  createPayment(createPaymentInput: CreatePaymentInput!): PaymentResource!
-  updatePayment(updatePaymentInput: UpdatePaymentInput!): PaymentResource!
-  removePayment(id: String!): PaymentResource!
-  createGroup(createGroupInput: CreateGroupInput!): GroupResource!
-  updateGroup(updateGroupInput: UpdateGroupInput!): GroupResource!
-  removeGroup(id: String!): GroupResource!
-  exitGroup(id: String!): GroupResource!
-  inviteGroupUser(inviteGroupUserInput: InviteGroupUserInput!): GroupResource!
-  removeGroupUser(removeGroupUserInput: RemoveGroupUserInput!): GroupResource!
 }
 
 input CreateTokenInput {
@@ -286,68 +147,4 @@ input UpdateUserBankInput {
   bankName: String
   bankNumber: String
   id: String!
-}
-
-input CreateShoppingInput {
-  date: String!
-  store: String!
-  isPpn: Boolean!
-  delivery: Float!
-  discount: Float!
-  shoppingItems: [CreateShoppingItemInput!]!
-}
-
-input CreateShoppingItemInput {
-  id: String
-  borrowerId: String!
-  price: Float!
-  description: String!
-}
-
-input UpdateShoppingInput {
-  date: String
-  store: String
-  isPpn: Boolean
-  delivery: Float
-  discount: Float
-  shoppingItems: [CreateShoppingItemInput!]
-  id: String!
-}
-
-input CreatePaymentInput {
-  lenderId: String!
-  lenderBankId: String!
-  date: String!
-  paymentItems: [CreatePaymentItemInput!]!
-}
-
-input CreatePaymentItemInput {
-  shoppingId: String!
-}
-
-input UpdatePaymentInput {
-  lenderId: String
-  lenderBankId: String
-  date: String
-  paymentItems: [CreatePaymentItemInput!]
-  id: String!
-}
-
-input CreateGroupInput {
-  name: String!
-}
-
-input UpdateGroupInput {
-  name: String
-  id: String!
-}
-
-input InviteGroupUserInput {
-  id: String!
-  userId: String!
-}
-
-input RemoveGroupUserInput {
-  id: String!
-  userId: String!
 }
